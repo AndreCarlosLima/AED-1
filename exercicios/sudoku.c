@@ -46,17 +46,24 @@ int main(){
     int n;
     int mat[9][9];
     scanf("%i",&n);
-    for(int i=0;i<n;i++){
+    for(int caso = 1; caso <= n; caso++){
+        // Leitura da matriz
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 scanf("%d", &mat[i][j]);
             }
         }
-        printf("Instancia %d \n", i + 1);
+        // Impressão do resultado
+        printf("Instancia %d\n", caso);
         if (verificacao(mat) == 1) {
             printf("Sim\n");
         } else {
             printf("Nao\n");
+        }
+        
+        // Adiciona uma linha em branco entre as instâncias, exceto após a última
+        if (caso < n) {
+            printf("\n");
         }
     }
     return 0;
