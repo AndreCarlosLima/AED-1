@@ -6,21 +6,18 @@ typedef struct celula{
     struct celula *seg;
 }cel;
 
-cel *inserir_pessoa(cel *cmc,int n){
+cel *inserir_pessoa(cel **cmc,cel *fim,int n){
     cel *novo=malloc(sizeof(cel));
     novo->pessoa = n;
     novo->seg = NULL;
 
-    if (cmc == NULL) {
+    if (*cmc == NULL) {
+        *cmc=novo;
         return novo; // O novo nó é o pri meiro da lista
     }
 
-    cel *temp = cmc;
-    while (temp->seg != NULL) {
-        temp = temp->seg;
-    }
-    temp->seg=novo;
-    return cmc;
+    fim->seg=novo;
+    return novo;
 }
 
 cel *busca_remove(cel *cmc, int z) {
@@ -44,21 +41,26 @@ cel *busca_remove(cel *cmc, int z) {
 
 void imprimir_pessoas(cel *cmc) {
     cel *temp = cmc;
+
     while (temp != NULL) {
-        printf("%i ", temp->pessoa);  
+        printf("%d", temp->pessoa); // Imprime o valor sem espaço no final
         temp = temp->seg;
+        if (temp != NULL) {
+            printf(" "); // Apenas adiciona espaço se não for o último elemento
+        }
     }
-    printf("\n");
+    printf("\n"); // Adiciona uma quebra de linha ao final
 }
 
 int main(){
     cel *cmc=NULL;
+    cel *p;
     int n,x,y,z;
 
     scanf("%i",&x);
     for(int i=0;i<x;i++){
         scanf("%i",&n);
-        cmc=inserir_pessoa(cmc,n);
+        p=inserir_pessoa(&cmc,p,n);
     }
 
     scanf(" %i",&y);
