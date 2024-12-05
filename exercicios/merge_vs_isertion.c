@@ -26,7 +26,7 @@ int main(){
 
     printf("Tempo de execucao mergesort: %lf ms\n", ((double)tm)/((CLOCKS_PER_SEC/1000)));
 
-    /*for(int i=0;i<TAM;i++){
+    for(int i=0;i<TAM;i++){
         vetori[i] = rand() % TAM;
     }
 
@@ -37,7 +37,7 @@ int main(){
     printf("Tempo de execucao insertionsort: %lf ms\n", ((double)ti)/((CLOCKS_PER_SEC/1000))); 
  
 
-    free(vetori);*/
+    free(vetori);
     free(vetorm);
     return 0;
 }
