@@ -140,5 +140,4 @@ int main(){
         if(i==n-1) printf("Sucesso\n");
     }
     return 0;
->>>>>>> 8ad95095f182f6b576c579ba9b1983993dc3d53b
 }
